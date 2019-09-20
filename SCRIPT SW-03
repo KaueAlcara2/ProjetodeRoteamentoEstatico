@@ -6,13 +6,10 @@ enable secret SenhadaEnable
 line console 0
 password SenhadaConsole
 login
+exit
 crypto key generate rsa general-keys modulus 1024
 username administrador privilege 15 secret SenhaAdmin
 username estagiario privilege 1 secret SenhaEst
-line console 0
-password SenhadaConsole
-login 
-exit
 service password-encryption
 line vty 0 15
 password SenhadaVTY
