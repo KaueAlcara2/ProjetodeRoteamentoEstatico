@@ -1,0 +1,19 @@
+enable
+configure terminal
+hostname SW-04
+banner motd "ACESSO AUTORIZADO APENAS PARA O DEPARTAMENTO DE TI!"
+enable secret SenhadaEnable
+line console 0
+password SenhadaConsole
+login
+crypto key generate rsa general-keys modulus 1024
+username administrador privilege 15 secret SenhaAdmin
+username estagiario privilege 1 secret SenhaEst
+service password-encryption
+line vty 0 15
+password SenhadaVTY
+transport input ssh
+exec-timeout 5
+login local
+ip default-gateway 172.16.42.1
+do wr
