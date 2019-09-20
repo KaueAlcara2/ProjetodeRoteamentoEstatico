@@ -2,8 +2,7 @@ enable
 configure terminal
 hostname RT-00
 banner motd "ACESSO APENAS PARA PESSOAS AUTORIZADAS"
-enable secret 
-SenhadaEnable
+enable secret SenhadaEnable
 line console 0
 password SenhadaConsole
 login
@@ -24,6 +23,7 @@ login block-for 3 attempts 3 within 1
 security passwords min-length 8
 crypto key generate rsa general-keys modulus 1024
 line vty 0 15
+password SenhadaVTY
 transport input ssh
 login local
 exec-timeout 5
