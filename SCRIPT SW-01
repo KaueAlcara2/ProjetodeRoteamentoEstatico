@@ -7,7 +7,7 @@ line console 0
 password SenhadaConsole
 login
 crypto key generate rsa general-keys modulus 1024
-username administradot privilege 15 secret SenhaAdmin
+username administrador privilege 15 secret SenhaAdmin
 username estagiario privilege 1 secret SenhaEst
 line console 0
 password SenhadaConsole
