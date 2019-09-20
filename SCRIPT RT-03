@@ -1,6 +1,6 @@
 enable
 configure terminal
-hostname RT-02
+hostname RT-03
 banner motd "ACESSO APENAS PARA PESSOAS AUTORIZADAS"
 enable secret SenhadaEnable
 line console 0
