@@ -1,6 +1,6 @@
 enable
 configure terminal
-hostname SW-01
+hostname SW-02
 banner motd "ACESSO AUTORIZADO APENAS PARA O DEPARTAMENTO DE TI!"
 enable secret SenhadaEnable
 line console 0
