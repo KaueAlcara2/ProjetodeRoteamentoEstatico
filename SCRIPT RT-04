@@ -1,0 +1,35 @@
+enable
+configure terminal
+hostname RT-04
+banner motd "ACESSO APENAS PARA PESSOAS AUTORIZADAS"
+enable secret SenhadaEnable
+line console 0
+password SenhadaConsole
+login
+exit
+interface serial0/3/0
+ip address 200.200.100.10 255.255.255.252
+no shutdown
+exit
+interface serial 0/3/1 
+ip address 200.200.100.13 255.255.255.252
+no shutdown
+exit 
+ip route 192.168.0.0 255.255.255.128 serial0/3/0
+ip route 10.40.16.0 255.255.240.0 serial0/3/1
+username administrador privilege 15 secret SenhaAdmin
+username estagiario privilege 1 secret SenhaEst
+login block-for 3 attempts 3 within 1
+security passwords min-length 8
+crypto key generate rsa general-keys modulus 1024
+line vty 0 15
+password SenhadaVTY
+transport input ssh
+login local
+exec-timeout 5
+service password-encryption
+interface gigabitEthernet 0/0
+ip address 172.16.42.1 255.255.254.0
+description REDE 4
+no shutdown
+do wr
